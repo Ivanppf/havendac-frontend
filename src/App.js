@@ -14,12 +14,12 @@ export default class App extends React.Component {
                     <h1 className="texto-cabecalho">haven</h1>
                 </header>
                 <main className="conteudo">
-                    {/*<PropertyCreate/>*/}
-                    <RoomCreate/>
+                    <PropertyCreate/>
+                    {/*<RoomCreate/>*/}
                 </main>
                 <hr/>
                 <footer className="rodape">
-                    <a href="https://github.com/Ivanppf" target="_blank">By: Ivanppf</a>
+                    <a href="https://github.com/Ivanppf" target="_blank">About</a>
                 </footer>
             </div>
         );

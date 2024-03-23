@@ -9,13 +9,6 @@ export default class PropertyCreate extends React.Component {
         type: "",
         description: ""
     }
-    options = [
-        {label: "Apartment", value: "APARTMENT"},
-        {label: "House", value: "HOUSE"},
-        {label: "Bedroom", value: "BEDROOM"},
-        {label: "Cabin", value: "CABIN"},
-        {label: "Bed & Breakfasts", value: "BED_N_BREAKFASTS"},
-        {label: "Farm", value: "FARM"}]
 
     register = () => {
         console.log(JSON.stringify(this.state))
@@ -43,10 +36,13 @@ export default class PropertyCreate extends React.Component {
                     <label>type</label>
                     <br/>
                     <select onChange={e => this.setState({type: e.target.value})}>
-                        {this.options.map(option => (
-                            <option value={option.value}>{option.label}</option>
-                        ))}
-                        {/*<option hidden selected>Select a type</option>*/}
+                        <option hidden selected>Select a type</option>
+                        <option value="APARTMENT">Apartment</option>
+                        <option value="HOUSE">House</option>
+                        <option value="BEDROOM">Bedroom</option>
+                        <option value="CABIN">Cabin</option>
+                        <option value="BED_N_BREAKFASTS">Bed & Breakfasts</option>
+                        <option value="FARM">Farm</option>
                     </select>
                     <br/>
                     <label>description:</label>

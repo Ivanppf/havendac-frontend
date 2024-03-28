@@ -1,0 +1,32 @@
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    border-radius: 1rem;
+
+}
+
+::-webkit-scrollbar-thumb {
+    --tw-bg-opacity: 1;
+    background-color: rgb(180 180 190 / var(--tw-bg-opacity));
+    border-radius: 1rem;
+}
+
+.div-tabela {
+    overflow-y: scroll;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.div-table {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-button-table {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    padding: 0 0 10px 10px;
+}

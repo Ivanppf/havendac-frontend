@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
-import travel from '../src/assets/travel.svg'
-import PropertyCreate from "./components/property/PropertyCreate";
-import RoomCreate from "./components/room/RoomCreate";
+import Navbar from "./components/Navbar";
+import AppRoutes from "./main/AppRoutes";
 
 export default class App extends React.Component {
+
 
     render() {
         return (
             <div className="geral">
                 <header className="cabecalho">
-                    <img width="40" height="40" src={travel} alt="icon"/>
-                    <h1 className="texto-cabecalho">haven</h1>
+                    <Navbar/>
                 </header>
                 <main className="conteudo">
-                    <PropertyCreate/>
-                    {/*<RoomCreate/>*/}
+                    <AppRoutes/>
                 </main>
-                <hr/>
                 <footer className="rodape">
-                    <a href="https://github.com/Ivanppf" target="_blank">About</a>
+                    <hr className="divisao-rodape"/>
+                    <p className="link-github">Made by: <a
+                        className="link-github" href="https://github.com/Ivanppf" target="_blank">Ivan Pinheiro</a></p>
                 </footer>
             </div>
         );

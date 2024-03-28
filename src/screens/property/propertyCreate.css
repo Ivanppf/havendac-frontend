@@ -1,0 +1,8 @@
+textarea {
+    resize: none;
+}
+
+.div-button-property {
+    display: flex;
+    justify-content: end;
+}

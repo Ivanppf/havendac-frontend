@@ -89,29 +89,35 @@ export default class PropertyTable extends React.Component {
         }
     ]
 
-    confirmar = (index) => {
-        window.confirm("Are you sure you want to delete this property?")
-        console.log(index)
+    deleteProperty = (index) => {
+        window.confirm(`Are you sure you want to delete this property? ${index}`)
     }
+
+    editProperty = (index, item) => {
+        // window.prompt(`index: ${index} item: ${item}`)
+        console.log(`index: ${index} item: ${item.id}`)
+    }
+
 
     render() {
         return (
             <Table className="div-property-table"
                    titles={["PROPERTY ID", "TYPE", "IS AVAILABLE", "IS COUNTRYSIDE", "HAS SWIMMING POOL", "DESCRIPTION"]}
                    object="Property"
-                   deleteBtn={this.confirmar}
-                   tableItens={this.tableItens.map(item => {
-                       return (
-                           <>
-                               <td>{item.id}</td>
-                               <td>{item.type}</td>
-                               <td><img src={item.isAvailable ? checkIcon : cancelIcon}/></td>
-                               <td><img src={item.isCountryside ? checkIcon : cancelIcon}/></td>
-                               <td><img src={item.hasSwimmingPool ? checkIcon : cancelIcon}/></td>
-                               <td>{item.description}</td>
-                           </>
-                       )
-                   })}/>
+                   deleteBtn={this.deleteProperty}
+                   editBtn={this.editProperty}>
+                {this.tableItens.map(item => {
+                    return (
+                        <>
+                            <td>{item.id}</td>
+                            <td>{item.type}</td>
+                            <td><img src={item.isAvailable ? checkIcon : cancelIcon} alt="icon"/></td>
+                            <td><img src={item.isCountryside ? checkIcon : cancelIcon} alt="icon"/></td>
+                            <td><img src={item.hasSwimmingPool ? checkIcon : cancelIcon} alt="icon"/></td>
+                            <td>{item.description}</td>
+                        </>
+                    )
+                })}</Table>
         )
     }
 }

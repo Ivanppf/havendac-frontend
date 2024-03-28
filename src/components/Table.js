@@ -29,7 +29,7 @@ export default class Table extends React.Component {
                         </tr>
                         </thead>
                         <tbody className="text-center align-middle">
-                        {this.props.tableItens.map((item, index) => {
+                        {this.props.children.map((item, index) => {
                             return (
                                 <tr>
                                     {item}
@@ -40,6 +40,7 @@ export default class Table extends React.Component {
                                             width="30"
                                             height="30"
                                             alt="editIcon"
+                                            onClick={() => this.props.editBtn(index, item)}
                                             src={editIcon}/></button>
                                     </td>
                                     <td>

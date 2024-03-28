@@ -78,8 +78,7 @@ export default class RoomTable extends React.Component {
     ]
 
     confirmar = (index) => {
-        window.confirm("Are you sure you want to delete this room?")
-        console.log(index)
+        window.confirm(`Are you sure you want to delete this room? ${index}`)
     }
 
     render() {
@@ -87,18 +86,18 @@ export default class RoomTable extends React.Component {
             <Table className="div-property-table"
                    titles={["ROOM ID", "LENGTH", "WIDTH", "AREA", "PROPERTY ID"]}
                    object="Room"
-                   deleteBtn={this.confirmar}
-                   tableItens={this.tableItens.map(item => {
-                       return (
-                           <>
-                               <td>{item.id}</td>
-                               <td>{item.length} mts</td>
-                               <td>{item.width} mts</td>
-                               <td>{item.area} m²</td>
-                               <td>{item.propertyId}</td>
-                           </>
-                       )
-                   })}/>
+                   deleteBtn={this.confirmar}>
+                {this.tableItens.map(item => {
+                    return (
+                        <>
+                            <td>{item.id}</td>
+                            <td>{item.length} mts</td>
+                            <td>{item.width} mts</td>
+                            <td>{item.area} m²</td>
+                            <td>{item.propertyId}</td>
+                        </>
+                    )
+                })}</Table>
         )
     }
 }

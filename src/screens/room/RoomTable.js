@@ -77,16 +77,22 @@ export default class RoomTable extends React.Component {
         }
     ]
 
-    confirmar = (index) => {
+    deleteRoom = (index) => {
         window.confirm(`Are you sure you want to delete this room? ${index}`)
+    }
+
+    editRoom = (index, item) => {
+        window.alert(`index: ${index} item: ${item}`)
     }
 
     render() {
         return (
             <Table className="div-property-table"
                    titles={["ROOM ID", "LENGTH", "WIDTH", "AREA", "PROPERTY ID"]}
-                   object="Room"
-                   deleteBtn={this.confirmar}>
+                   entityName="Room"
+                   href="/rooms/create"
+                   editBtn={this.editRoom}
+                   deleteBtn={this.deleteRoom}>
                 {this.tableItens.map(item => {
                     return (
                         <>

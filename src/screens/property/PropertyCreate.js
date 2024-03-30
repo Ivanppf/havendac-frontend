@@ -1,8 +1,11 @@
 import React from "react";
 import './propertyCreate.css';
 import Card from "../../components/Card";
+import {post} from "../../service/RequestService";
 
 export default class PropertyCreate extends React.Component {
+
+    apiUrl = "http://localhost:8080/api/properties"
 
     state = {
         isAvailable: false,
@@ -21,7 +24,7 @@ export default class PropertyCreate extends React.Component {
     ]
 
     register = () => {
-        console.log(JSON.stringify(this.state))
+        post(this.apiUrl, this.state)
     }
 
     render() {
@@ -69,7 +72,7 @@ export default class PropertyCreate extends React.Component {
                               maxLength="250" rows="3"/>
                 </div>
                 <div className="div-button-property mt-2">
-                    <button className="btn btn-primary" onClick={this.register}>Send</button>
+                    <a href="/properties" className="btn btn-primary" onClick={this.register}>Send</a>
                 </div>
             </Card>
         )

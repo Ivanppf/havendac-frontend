@@ -10,7 +10,7 @@ export default class RoomCreate extends React.Component {
     }
 
     register = () => {
-        console.log(JSON.stringify(this.state))
+        window.alert(JSON.stringify(this.state))
     }
 
     render() {
@@ -32,7 +32,7 @@ export default class RoomCreate extends React.Component {
                            onChange={e => this.setState({propertyId: e.target.value})}/>
                 </div>
                 <div className="div-button-room mt-2">
-                    <button className="btn btn-primary" onClick={this.register}>Send</button>
+                    <a href="/rooms" className="btn btn-primary" onClick={this.register}>Send</a>
                 </div>
             </Card>
         )

@@ -5,6 +5,9 @@
     justify-content: center;
 }
 
+.cabecalho {
+    margin-bottom: 10px;
+}
 
 .geral {
     display: flex;
@@ -13,7 +16,8 @@
 }
 
 .rodape {
-    margin-top: auto;
+    margin-top: 10px;
+    /*margin-top: auto;*/
     background: #3459e6;
     display: flex;
     justify-content: center;

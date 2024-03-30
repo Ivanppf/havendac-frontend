@@ -1,18 +1,31 @@
-import {BrowserRouter, Route} from "react-router-dom";
 import PropertyCreate from "../screens/property/PropertyCreate";
 import PropertyTable from "../screens/property/PropertyTable";
 import RoomTable from "../screens/room/RoomTable";
 import RoomCreate from "../screens/room/RoomCreate";
+import {createBrowserRouter} from "react-router-dom";
+import App from "../App";
 
-function AppRoutes() {
-    return (
-        <BrowserRouter>
-            <Route component={PropertyTable} path="/properties" exact/>
-            <Route component={RoomTable} path="/rooms" exact/>
-            <Route component={PropertyCreate} path="/properties/create"/>
-            <Route component={RoomCreate} path="/rooms/create"/>
-        </BrowserRouter>
-    )
-}
+const AppRoutes = createBrowserRouter([
+    {
+        path: '/', element: <App/>,
+        children: [
+            {path: "/properties", element: <PropertyTable/>},
+            {path: "/rooms", element: <RoomTable/>},
+            {path: "/properties/create", element: <PropertyCreate/>},
+            {path: "/rooms/create", element: <RoomCreate/>},
+        ]
+    }
+])
+
+
+// loader:() => {
+//     return state = {
+//         isAvailable: true,
+//         isCountryside: true,
+//         hasSwimmingPool: false,
+//         type: "BEDROOM",
+//         description: "eorihnogikf"
+//     }
+// })
 
 export default AppRoutes;

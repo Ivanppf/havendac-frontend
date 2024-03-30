@@ -1,9 +1,10 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function NavBarItem(props) {
     return (
         <li className="nav-item">
-            <a className="nav-link" href={props.href}>{props.label}</a>
+            <Link className="nav-link" to={props.href}>{props.label}</Link>
         </li>
     )
 }

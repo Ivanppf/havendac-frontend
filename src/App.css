@@ -1,0 +1,38 @@
+.conteudo {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho {
+    margin-bottom: 10px;
+}
+
+.geral {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+}
+
+.rodape {
+    margin-top: 10px;
+    /*margin-top: auto;*/
+    background: #3459e6;
+    display: flex;
+    justify-content: center;
+}
+
+.link-github {
+    color: white;
+    padding: 10px 0 10px 0;
+    margin: 0;
+}
+
+.divisao-rodape {
+    background-color: dimgrey;
+    opacity: 100%;
+    border: none;
+    margin: 0;
+    height: 2px;
+}

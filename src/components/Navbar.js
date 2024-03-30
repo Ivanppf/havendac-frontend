@@ -18,12 +18,6 @@ function NavBar(props) {
                         <NavBarItem href="/properties" label="Property"/>
                         <NavBarItem href="/rooms" label="Room"/>
                     </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-sm-2 bg-white text-dark"
-                               type="search"
-                               placeholder="Search"></input>
-                        <button className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>

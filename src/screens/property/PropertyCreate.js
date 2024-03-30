@@ -2,6 +2,7 @@ import React from "react";
 import './propertyCreate.css';
 import Card from "../../components/Card";
 import {post} from "../../service/RequestService";
+import {useLocation} from "react-router-dom";
 
 export default class PropertyCreate extends React.Component {
 
@@ -72,7 +73,7 @@ export default class PropertyCreate extends React.Component {
                               maxLength="250" rows="3"/>
                 </div>
                 <div className="div-button-property mt-2">
-                    <a href="/properties" className="btn btn-primary" onClick={this.register}>Send</a>
+                    <button className="btn btn-primary" onClick={this.register}>Send</button>
                 </div>
             </Card>
         )

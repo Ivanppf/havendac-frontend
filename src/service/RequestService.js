@@ -15,18 +15,24 @@ export async function findAll(apiUrl) {
     // }
 
 
-    return axios.get(apiUrl)
+    return await axios.get(apiUrl)
         .then(response => response.data)
-        .catch((error) => window.alert(error))
+        .catch(() => [])
 
 }
 
 export async function post(apiUrl, item) {
-    axios.post(apiUrl, item)
+    await axios.post(apiUrl, item)
         .then(response => window.alert(response.status))
         .catch((error) => window.alert(error))
 }
 
 export async function remove(apiUrl, id) {
-    window.alert(apiUrl + id)
+    window.alert(`${apiUrl}/${id}`)
+    //await axios.delete(`${apiUrl}/${id}`)
+}
+
+export async function update(apiUrl, item) {
+    window.alert(`${apiUrl}/${item.id}`)
+    // await axios.put(`${apiUrl}/${item.id}`, item)
 }

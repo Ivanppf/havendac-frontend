@@ -48,19 +48,20 @@ export default class Table extends React.Component {
                                 <tr key={index}>
                                     {item}
                                     <td>
-                                        <button
+                                        <a
                                             type="button"
-                                            onClick={() => this.props.editBtn(index, "item")}
+                                            href={this.props.href}
+                                            onClick={() => this.props.editBtn(index)}
                                             className="btn btn-warning"><img
                                             width="30"
                                             height="30"
                                             alt="editIcon"
-                                            src={editIcon}/></button>
+                                            src={editIcon}/></a>
                                     </td>
                                     <td>
                                         <button
                                             type="button"
-                                            onClick={() => this.props.deleteBtn(item)}
+                                            onClick={() => this.props.deleteBtn(index)}
                                             className="btn btn-danger"><img
                                             width="30" height="30"
                                             alt="editIcon"

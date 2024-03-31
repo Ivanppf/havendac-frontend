@@ -23,16 +23,19 @@ export async function findAll(apiUrl) {
 
 export async function post(apiUrl, item) {
     await axios.post(apiUrl, item)
-        .then(response => window.alert(response.status))
+        .then(response => window.alert("Created successfully"))
         .catch((error) => window.alert(error))
 }
 
 export async function remove(apiUrl, id) {
-    window.alert(`${apiUrl}/${id}`)
-    //await axios.delete(`${apiUrl}/${id}`)
+    // window.alert(`${apiUrl}/${id}`)
+    await axios.delete(`${apiUrl}/${id}`)
+        .catch((error) => window.alert(error))
 }
 
-export async function update(apiUrl, item) {
-    window.alert(`${apiUrl}/${item.id}`)
-    // await axios.put(`${apiUrl}/${item.id}`, item)
+export async function update(apiUrl, id, item) {
+    // window.alert(`${apiUrl}/${id}`)
+    // console.log(item)
+    await axios.put(`${apiUrl}/${id}`, item)
+        .catch((error) => console.log(error))
 }

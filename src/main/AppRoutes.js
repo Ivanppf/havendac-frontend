@@ -9,23 +9,24 @@ const AppRoutes = createBrowserRouter([
     {
         path: '/', element: <App/>,
         children: [
-            {path: "/properties", element: <PropertyTable/>},
-            {path: "/rooms", element: <RoomTable/>},
-            {path: "/properties/create", element: <PropertyCreate/>},
-            {path: "/rooms/create", element: <RoomCreate/>},
+            {
+                path: "/properties",
+                element: <PropertyTable/>
+            },
+            {
+                path: "/rooms",
+                element: <RoomTable/>
+            },
+            {
+                path: "/properties/create",
+                element: <PropertyCreate/>,
+            },
+            {
+                path: "/rooms/create",
+                element: <RoomCreate/>
+            },
         ]
     }
 ])
-
-
-// loader:() => {
-//     return state = {
-//         isAvailable: true,
-//         isCountryside: true,
-//         hasSwimmingPool: false,
-//         type: "BEDROOM",
-//         description: "eorihnogikf"
-//     }
-// })
 
 export default AppRoutes;

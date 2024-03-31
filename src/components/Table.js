@@ -50,13 +50,14 @@ export default class Table extends React.Component {
                                     <td>
                                         <a
                                             type="button"
-                                            href={this.props.href}
+                                            // href={this.props.href}
                                             onClick={() => this.props.editBtn(index)}
                                             className="btn btn-warning"><img
                                             width="30"
                                             height="30"
                                             alt="editIcon"
-                                            src={editIcon}/></a>
+                                            src={editIcon}/>
+                                        </a>
                                     </td>
                                     <td>
                                         <button

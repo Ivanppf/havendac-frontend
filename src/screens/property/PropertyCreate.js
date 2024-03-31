@@ -1,21 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import './propertyCreate.css';
 import Card from "../../components/Card";
-import {post} from "../../service/RequestService";
 import {useLocation} from "react-router-dom";
+import {post, update} from "../../service/RequestService";
 
-export default class PropertyCreate extends React.Component {
+function PropertyCreate() {
 
-    apiUrl = "http://localhost:8080/api/properties"
+    const apiUrl = "http://localhost:8080/api/properties"
 
-    state = {
-        isAvailable: false,
-        isCountryside: false,
-        hasSwimmingPool: false,
-        type: "",
-        description: ""
-    }
-    options = [
+    let [isAvailable, setIsAvailable] = useState(false)
+    let [isCountryside, setIsCountryside] = useState(false)
+    let [hasSwimmingPool, setHasSwimmingPool] = useState(false)
+    let [type, setType] = useState("")
+    let [description, setDescription] = useState("")
+
+
+    const options = [
         {label: "Apartment", value: "APARTMENT"},
         {label: "House", value: "HOUSE"},
         {label: "Bedroom", value: "BEDROOM"},
@@ -24,58 +24,94 @@ export default class PropertyCreate extends React.Component {
         {label: "Farm", value: "FARM"}
     ]
 
-    register = () => {
-        post(this.apiUrl, this.state)
+    const data = useLocation();
+
+    function register() {
+        const property = {
+            isAvailable: isAvailable,
+            isCountryside: isCountryside,
+            hasSwimmingPool: hasSwimmingPool,
+            type: type,
+            description: description
+        }
+        if (data.state != null) {
+            update(apiUrl, data.state.id, property)
+        } else {
+            post(apiUrl, property)
+        }
     }
 
-    render() {
-        return (
-            <Card className="div-cadastro-property" title="Property">
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value={this.state.isAvailable.toString()}
-                           onChange={e => this.setState({isAvailable: e.target.checked})} id="flexCheckDefault"/>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                        is available
-                    </label>
-                </div>
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value={this.state.isCountryside.toString()}
-                           onChange={e => this.setState({isCountryside: e.target.checked})}
-                           id="flexCheckDefault"/>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                        is countryside
-                    </label>
-                </div>
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox"
-                           value={this.state.hasSwimmingPool.toString()}
-                           onChange={e => this.setState({hasSwimmingPool: e.target.checked})}
-                           id="flexCheckDefault"/>
-                    <label className="form-check-label" htmlFor="flexCheckDefault">
-                        has swimming pool
-                    </label>
-                </div>
-                <br/>
-                <div>
-                    <select className="form-select" id="exampleSelect1" onChange={e => {
-                        this.setState({type: e.target.value})
-                    }}>
-                        <option hidden selected>Select a type</option>
-                        {this.options.map(({value, label}) => (
-                            <option key={value} value={value}>{label}</option>
-                        ))}
-                    </select>
-                </div>
-                <div>
-                    <label className="col-form-label mt-2 ms-2" htmlFor="textareaDescription">description:</label>
-                    <textarea className="form-control" placeholder="Default input" id="textareaDescription"
-                              onChange={e => this.setState({description: e.target.value})}
-                              maxLength="250" rows="3"/>
-                </div>
-                <div className="div-button-property mt-2">
-                    <button className="btn btn-primary" onClick={this.register}>Send</button>
-                </div>
-            </Card>
-        )
+    function loadUpdateData() {
+        setIsAvailable(data.state.isAvailable)
+        setIsCountryside(data.state.isCountryside)
+        setHasSwimmingPool(data.state.hasSwimmingPool)
+        setType(data.state.type)
+        setDescription(data.state.description)
     }
+
+    const [constructorHasRun, setConstructorHasRun] = useState(false);
+    const constructor = () => {
+        if (constructorHasRun) return;
+        if (data.state != null) {
+            loadUpdateData();
+        }
+        setConstructorHasRun(true);
+    };
+    constructor()
+
+    return (
+        <Card className="div-cadastro-property" title="Property">
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox"
+                       checked={isAvailable}
+                       onChange={e => setIsAvailable(e.target.checked)}
+                       id="flexCheckDefault"/>
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                    is available
+                </label>
+            </div>
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox"
+                       checked={isCountryside}
+                       onChange={e => setIsCountryside(e.target.checked)}
+                       id="flexCheckDefault"/>
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                    is countryside
+                </label>
+            </div>
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox"
+                       checked={hasSwimmingPool}
+                       onChange={e => setHasSwimmingPool(e.target.checked)}
+                       id="flexCheckDefault"/>
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                    has swimming pool
+                </label>
+            </div>
+            <br/>
+            <div>
+                <select value={type} defaultValue="placeholder" className="form-select"
+                        id="exampleSelect1"
+                        onChange={e => setType(e.target.value)
+                        }>
+                    <option hidden value="placeholder">Select a type</option>
+                    {options.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                <label className="col-form-label mt-2 ms-2" htmlFor="textareaDescription">description:</label>
+                <textarea className="form-control" placeholder="Default input" id="textareaDescription"
+                          value={description}
+                          onChange={e => setDescription(e.target.value)}
+                          maxLength="250" rows="3"/>
+            </div>
+            <div className="div-button-property mt-2">
+                <button className="btn btn-primary" onClick={register}>Send</button>
+            </div>
+        </Card>
+    )
 }
+
+export default PropertyCreate

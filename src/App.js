@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar";
-import AppRoutes from "./main/AppRoutes";
 import {Outlet} from "react-router-dom";
 
 export default class App extends React.Component {

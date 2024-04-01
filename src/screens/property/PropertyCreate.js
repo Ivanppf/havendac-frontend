@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 import {useLocation} from "react-router-dom";
 import {post, update} from "../../service/RequestService";
 
-function PropertyCreate() {
+export default function PropertyCreate() {
 
     const apiUrl = "http://localhost:8080/api/properties"
 
@@ -60,7 +60,7 @@ function PropertyCreate() {
     constructor()
 
     return (
-        <Card className="div-cadastro-property" title="Property">
+        <Card className="div-cadastro-property" title="Property" register={register}>
             <div className="form-check">
                 <input className="form-check-input" type="checkbox"
                        checked={isAvailable}
@@ -102,16 +102,11 @@ function PropertyCreate() {
             </div>
             <div>
                 <label className="col-form-label mt-2 ms-2" htmlFor="textareaDescription">description:</label>
-                <textarea className="form-control" placeholder="Default input" id="textareaDescription"
+                <textarea className="form-control" placeholder="Property description" id="textareaDescription"
                           value={description}
                           onChange={e => setDescription(e.target.value)}
                           maxLength="250" rows="3"/>
             </div>
-            <div className="div-button-property mt-2">
-                <button className="btn btn-primary" onClick={register}>Send</button>
-            </div>
         </Card>
     )
 }
-
-export default PropertyCreate

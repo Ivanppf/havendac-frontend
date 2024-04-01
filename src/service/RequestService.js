@@ -17,7 +17,10 @@ export async function findAll(apiUrl) {
 
     return await axios.get(apiUrl)
         .then(response => response.data)
-        .catch(() => [])
+        .catch((error) => {
+            window.alert(error)
+            return []
+        })
 
 }
 
@@ -37,5 +40,5 @@ export async function update(apiUrl, id, item) {
     // window.alert(`${apiUrl}/${id}`)
     // console.log(item)
     await axios.put(`${apiUrl}/${id}`, item)
-        .catch((error) => console.log(error))
+        .catch((error) => window.alert(error))
 }

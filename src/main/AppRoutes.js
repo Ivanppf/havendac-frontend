@@ -10,6 +10,10 @@ const AppRoutes = createBrowserRouter([
         path: '/', element: <App/>,
         children: [
             {
+                path: "/",
+                element: <PropertyTable/>
+            },
+            {
                 path: "/properties",
                 element: <PropertyTable/>
             },

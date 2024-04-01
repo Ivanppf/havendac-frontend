@@ -1,40 +1,83 @@
-import React from "react";
 import './roomCreate.css';
 import Card from "../../components/Card";
+import {useState} from "react";
+import {useLocation} from "react-router-dom";
+import {post, update} from "../../service/RequestService";
 
-export default class RoomCreate extends React.Component {
-    state = {
-        length: 0,
-        width: 0,
-        propertyId: 0
+export default function RoomCreate() {
+
+    const apiUrl = "http://localhost:8080/api/rooms"
+
+    let [length, setLength] = useState(0)
+    let [width, setWidth] = useState(0)
+    let [propertyId, setPropertyId] = useState(0)
+
+    const data = useLocation();
+
+    function register() {
+        const room = {
+            length: length,
+            width: width,
+            propertyId: propertyId
+        }
+        if (data.state != null) {
+            update(apiUrl, data.state.id, room)
+        } else {
+            post(apiUrl, room)
+        }
     }
 
-    register = () => {
-        window.alert(JSON.stringify(this.state))
+    function loadUpdateData() {
+        setLength(data.state.length)
+        setWidth(data.state.width)
+        setPropertyId(data.state.propertyId)
     }
 
-    render() {
-        return (
-            <Card className="div-cadastro-room" title="Room">
-                <div>
-                    <label className="col-form-label mt-2" htmlFor="inputDefault">length</label>
-                    <input type="number" className="form-control" placeholder="0" id="inputDefault"
-                           onChange={e => this.setState({length: e.target.value})}/>
-                </div>
-                <div>
-                    <label className="col-form-label mt-2" htmlFor="inputDefault">width</label>
-                    <input type="number" className="form-control" placeholder="0" id="inputDefault"
-                           onChange={e => this.setState({width: e.target.value})}/>
-                </div>
-                <div>
-                    <label className="col-form-label mt-2" htmlFor="inputDefault">property id</label>
-                    <input type="number" className="form-control" placeholder="0" id="inputDefault"
-                           onChange={e => this.setState({propertyId: e.target.value})}/>
-                </div>
-                <div className="div-button-room mt-2">
-                    <a href="/rooms" className="btn btn-primary" onClick={this.register}>Send</a>
-                </div>
-            </Card>
-        )
-    }
+    const [constructorHasRun, setConstructorHasRun] = useState(false);
+    const constructor = () => {
+        if (constructorHasRun) return;
+        if (data.state != null) {
+            loadUpdateData();
+        }
+        setConstructorHasRun(true);
+    };
+    constructor()
+
+    return (
+        <Card className="div-cadastro-room" title="Room" register={register}>
+            <div>
+                <label
+                    className="col-form-label mt-2"
+                    htmlFor="inputLength">length</label>
+                <input
+                    type="number"
+                    className="form-control"
+                    value={length}
+                    id="inputLength"
+                    onChange={e => setLength(e.target.value)}/>
+            </div>
+            <div>
+                <label
+                    className="col-form-label mt-2"
+                    htmlFor="inputWidth">width</label>
+                <input
+                    type="number"
+                    className="form-control"
+                    value={width}
+                    id="inputWidth"
+                    onChange={e => setWidth(e.target.value)}/>
+            </div>
+            <div>
+                <label
+                    className="col-form-label mt-2"
+                    htmlFor="inputPropertyId">property id</label>
+                <input
+                    type="number"
+                    className="form-control"
+                    value={propertyId}
+                    id="inputPropertyId"
+                    onChange={e => setPropertyId(e.target.value)}/>
+            </div>
+        </Card>
+    )
 }

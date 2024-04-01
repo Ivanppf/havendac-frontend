@@ -1,18 +1,23 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Table from "../../components/Table";
 import checkIcon from "../../assets/CHECK-CIRCLE.svg"
 import cancelIcon from "../../assets/CANCEL.svg"
 import {findAll, remove} from "../../service/RequestService";
 import {useNavigate} from "react-router-dom";
 
-function PropertyTable() {
+export default function PropertyTable() {
 
     const apiUrl = "http://localhost:8080/api/properties"
     let [tableItens, setTableItens] = useState([])
+    const navigate = useNavigate();
 
-    useEffect(() => {
+    const [constructorHasRun, setConstructorHasRun] = useState(false);
+    const constructor = () => {
+        if (constructorHasRun) return;
         loadTable()
-    })
+        setConstructorHasRun(true);
+    };
+    constructor()
 
     function deleteProperty(index) {
         const resp = window.confirm(`Are you sure you want to delete this property? ${index}`)
@@ -20,8 +25,6 @@ function PropertyTable() {
             remove(apiUrl, tableItens[index].id)
         }
     }
-
-    const navigate = useNavigate();
 
     function editProperty(index) {
         const data = tableItens[index]
@@ -58,5 +61,3 @@ function PropertyTable() {
         </>
     )
 }
-
-export default PropertyTable

@@ -1,15 +1,24 @@
 import './roomCreate.css';
 import Card from "../../components/Card";
-import {useState} from "react";
+import React, {useState} from "react";
 import {useLocation} from "react-router-dom";
 import {post, update} from "../../service/RequestService";
 
-export default function RoomCreate() {
+const apiUrl = "http://localhost:8080/api/rooms"
+const options = [
+    {label: "Bedroom", value: "BEDROOM"},
+    {label: "Bathroom", value: "BATHROOM"},
+    {label: "Kitchen", value: "KITCHEN"},
+    {label: "Living room", value: "LIVING_ROOM"},
+    {label: "Dining room", value: "DINING_ROOM"},
+    {label: "Laundry", value: "LAUNDRY"}
+]
 
-    const apiUrl = "http://localhost:8080/api/rooms"
+export default function RoomCreate() {
 
     let [length, setLength] = useState(0)
     let [width, setWidth] = useState(0)
+    let [roomType, setRoomType] = useState("")
     let [propertyId, setPropertyId] = useState(0)
 
     const data = useLocation();
@@ -18,6 +27,7 @@ export default function RoomCreate() {
         const room = {
             length: length,
             width: width,
+            roomType: roomType,
             propertyId: propertyId
         }
         if (data.state != null) {
@@ -30,6 +40,7 @@ export default function RoomCreate() {
     function loadUpdateData() {
         setLength(data.state.length)
         setWidth(data.state.width)
+        setRoomType(data.state.roomType)
         setPropertyId(data.state.propertyId)
     }
 
@@ -66,6 +77,18 @@ export default function RoomCreate() {
                     value={width}
                     id="inputWidth"
                     onChange={e => setWidth(e.target.value)}/>
+            </div>
+            <br/>
+            <div>
+                <select value={roomType} defaultValue="placeholder" className="form-select"
+                        id="exampleSelect1"
+                        onChange={e => setRoomType(e.target.value)
+                        }>
+                    <option hidden value="placeholder">Select a type</option>
+                    {options.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
             </div>
             <div>
                 <label

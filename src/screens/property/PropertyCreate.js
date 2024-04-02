@@ -4,25 +4,24 @@ import Card from "../../components/Card";
 import {useLocation} from "react-router-dom";
 import {post, update} from "../../service/RequestService";
 
-export default function PropertyCreate() {
+const apiUrl = "http://localhost:8080/api/properties"
 
-    const apiUrl = "http://localhost:8080/api/properties"
+const options = [
+    {label: "Apartment", value: "APARTMENT"},
+    {label: "House", value: "HOUSE"},
+    {label: "Bedroom", value: "BEDROOM"},
+    {label: "Cabin", value: "CABIN"},
+    {label: "Bed & Breakfasts", value: "BED_N_BREAKFASTS"},
+    {label: "Farm", value: "FARM"}
+]
+
+export default function PropertyCreate() {
 
     let [isAvailable, setIsAvailable] = useState(false)
     let [isCountryside, setIsCountryside] = useState(false)
     let [hasSwimmingPool, setHasSwimmingPool] = useState(false)
     let [type, setType] = useState("")
     let [description, setDescription] = useState("")
-
-
-    const options = [
-        {label: "Apartment", value: "APARTMENT"},
-        {label: "House", value: "HOUSE"},
-        {label: "Bedroom", value: "BEDROOM"},
-        {label: "Cabin", value: "CABIN"},
-        {label: "Bed & Breakfasts", value: "BED_N_BREAKFASTS"},
-        {label: "Farm", value: "FARM"}
-    ]
 
     const data = useLocation();
 

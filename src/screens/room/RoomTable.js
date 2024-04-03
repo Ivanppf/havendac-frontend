@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import Table from "../../components/Table";
 import {findAll, remove} from "../../service/RequestService";
 import {useLoaderData, useNavigate} from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import Table from "../../components/Table";
 
 const apiUrl = "http://localhost:8080/api/rooms"
 
@@ -24,8 +25,7 @@ export default function RoomTable() {
     }
 
     function loadTable() {
-        findAll(apiUrl)
-            .then(itens => setTableItens(itens))
+        findAll(apiUrl).then(itens => setTableItens(itens))
     }
 
     return (

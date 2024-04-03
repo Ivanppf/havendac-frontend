@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from "./components/Navbar";
 import {Outlet} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 
 export default class App extends React.Component {
 
@@ -14,6 +15,7 @@ export default class App extends React.Component {
                 </header>
                 <main className="conteudo">
                     <Outlet/>
+                    <ToastContainer className="toast-position" newestOnTop={false}/>
                 </main>
                 <footer className="rodape">
                     <hr className="divisao-rodape"/>

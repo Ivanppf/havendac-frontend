@@ -36,6 +36,7 @@ export default function PropertyCreate() {
         if (data.state != null) {
             update(apiUrl, data.state.id, property)
         } else {
+
             post(apiUrl, property)
         }
     }

@@ -6,7 +6,7 @@ import searchIcon from "../assets/SEARCH.svg";
 import "./table.css";
 
 export default function Table(props) {
-    
+
     return (
         <div className="div-table">
             <div className="div-button-table">
@@ -32,6 +32,7 @@ export default function Table(props) {
                 <table className="table table-striped table-hover table-bordered align-middle">
                     <thead className="table-primary sticky-top">
                     <tr className="text-center align-middle ">
+                        <th scope="col" className="text-light">N.º</th>
                         {props.titles.map(title => {
                             return (
                                 <th key={title} scope="col" className="text-light">{title}</th>
@@ -44,17 +45,17 @@ export default function Table(props) {
                     {props.children.map((item, index) => {
                         return (
                             <tr key={index}>
+                                <td>{index}</td>
                                 {item}
-                                <td>
-                                    <a
-                                        type="button"
-                                        onClick={() => props.editBtn(index)}
-                                        className="btn btn-warning"><img
-                                        width="30"
-                                        height="30"
-                                        alt="editIcon"
-                                        src={editIcon}/>
-                                    </a>
+                                <td><a
+                                    type="button"
+                                    onClick={() => props.editBtn(index)}
+                                    className="btn btn-warning"><img
+                                    width="30"
+                                    height="30"
+                                    alt="editIcon"
+                                    src={editIcon}/>
+                                </a>
                                 </td>
                                 <td>
                                     <button

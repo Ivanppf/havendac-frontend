@@ -4,8 +4,16 @@ import checkIcon from "../../assets/CHECK-CIRCLE.svg"
 import cancelIcon from "../../assets/CANCEL.svg"
 import {findAll, remove} from "../../service/RequestService";
 import {useLoaderData, useNavigate} from "react-router-dom";
+import {options} from "./PropertyCreate"
+import "./propertyTable.css"
 
 const apiUrl = "http://localhost:8080/api/properties"
+
+export const booleanOptions = [
+    {label: "--", value: ""},
+    {label: "true", value: true},
+    {label: "false", value: false},
+]
 
 export default function PropertyTable() {
 
@@ -31,7 +39,40 @@ export default function PropertyTable() {
     }
 
     return (
-        <>
+        <div className="div-property">
+            <div className="div-property-inputs">
+                <label>property id</label>
+                <input/>
+                <br/>
+                <label>Type</label>
+                <select>
+                    <option value="">--</option>
+                    {options.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+                <br/>
+                <label>Is available</label>
+                <select>
+                    {booleanOptions.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+                <br/>
+                <label>Is available</label>
+                <select>
+                    {booleanOptions.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+                <br/>
+                <label>Has swimming pool</label>
+                <select>
+                    {booleanOptions.map(({value, label}) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+            </div>
             <Table className="div-property-table"
                    titles={["PROPERTY ID", "TYPE", "IS AVAILABLE", "IS COUNTRYSIDE", "HAS SWIMMING POOL", "DESCRIPTION"]}
                    entityName="Property"
@@ -51,6 +92,6 @@ export default function PropertyTable() {
                         </>
                     )
                 })}</Table>
-        </>
+        </div>
     )
 }

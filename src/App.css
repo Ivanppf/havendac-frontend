@@ -12,6 +12,7 @@
 .geral {
     display: flex;
     flex-direction: column;
+    background: ghostwhite;
     height: 100svh;
 }
 

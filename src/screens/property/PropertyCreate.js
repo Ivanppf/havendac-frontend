@@ -6,7 +6,7 @@ import {post, update} from "../../service/RequestService";
 
 const apiUrl = "http://localhost:8080/api/properties"
 
-const options = [
+export const options = [
     {label: "Apartment", value: "APARTMENT"},
     {label: "House", value: "HOUSE"},
     {label: "Bedroom", value: "BEDROOM"},

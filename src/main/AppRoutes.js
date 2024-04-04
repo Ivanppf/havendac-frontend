@@ -21,7 +21,7 @@ const AppRoutes = createBrowserRouter([
                 path: "/properties",
                 element: <PropertyTable/>,
                 loader: async () => {
-                    return findAll("http://localhost:8080/api/properties")
+                    return [] // findAll("http://localhost:8080/api/properties")
                 }
             },
             {

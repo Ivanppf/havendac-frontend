@@ -1,0 +1,12 @@
+.div-property {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.div-property-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    margin-right: 40px;
+}

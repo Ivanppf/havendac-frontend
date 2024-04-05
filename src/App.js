@@ -6,7 +6,6 @@ import {ToastContainer} from "react-toastify";
 
 export default class App extends React.Component {
 
-
     render() {
         return (
             <div className="geral">

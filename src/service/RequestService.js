@@ -4,19 +4,6 @@ import React from "react";
 
 export async function findAll(apiUrl) {
 
-
-    // const myInit: RequestInit = {
-    //     method: "GET",
-    //     mode: "cors",
-    //     cache: "default",
-    // };
-    // try {
-    //     return await fetch(apiUrl, myInit)
-    // } catch (error) {
-    //     return null
-    // }
-
-
     return await axios.get(apiUrl)
         .then(response => response.data)
         .catch((error) => {

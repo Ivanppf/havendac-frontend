@@ -45,7 +45,7 @@ export default function Table(props) {
                     {props.children.map((item, index) => {
                         return (
                             <tr key={index}>
-                                <td>{index}</td>
+                                <td>{index + 1}</td>
                                 {item}
                                 <td><a
                                     type="button"

@@ -1,11 +1,15 @@
 .div-cadastro-property {
-    border: 2px solid #3459e6;
     padding: 14px;
     background: white;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
     scale: 1.25;
 }
+
+.div-cadastro-property:hover {
+    border: 2px solid #3459e6;
+}
+
 
 .btn {
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

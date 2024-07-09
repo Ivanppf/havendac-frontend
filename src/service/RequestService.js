@@ -1,20 +1,26 @@
 import axios from "axios";
 import {Bounce, toast} from "react-toastify";
-import React from "react";
 
-export async function findAll(apiUrl) {
+export async function findAll(apiUrl, queryParameters) {
 
+    //http://localhost:8080/properties?type=APARTMENT&isAvailable=true
+    //http://localhost:8080/properties?type=APARTMENT
 
-    // const myInit: RequestInit = {
-    //     method: "GET",
-    //     mode: "cors",
-    //     cache: "default",
-    // };
-    // try {
-    //     return await fetch(apiUrl, myInit)
-    // } catch (error) {
-    //     return null
-    // }
+    if (queryParameters !== undefined) {
+
+        var parameters = "?"
+
+        for (let i = 0; i < queryParameters.length; i++) {
+            if (queryParameters[i].value !== "") {
+                parameters += queryParameters[i].name + "=" + queryParameters[i].value
+                parameters += "&"
+            }
+        }
+        parameters = parameters.slice(0, -1)
+        apiUrl += parameters
+        console.log(parameters)
+
+    }
 
 
     return await axios.get(apiUrl)

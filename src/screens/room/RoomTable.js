@@ -25,7 +25,8 @@ export default function RoomTable() {
     }
 
     function loadTable() {
-        findAll(apiUrl).then(itens => setTableItens(itens))
+        const parameters = []
+        findAll(apiUrl, parameters).then(itens => setTableItens(itens))
     }
 
     return (

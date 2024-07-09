@@ -19,6 +19,12 @@ export default function PropertyTable() {
 
     const navigate = useNavigate();
     let [tableItens, setTableItens] = useState(useLoaderData())
+    let [propertyId, setPropertyId] = useState("")
+    let [isAvailable, setIsAvailable] = useState(false)
+    let [isCountryside, setIsCountryside] = useState(false)
+    let [hasSwimmingPool, setHasSwimmingPool] = useState(false)
+    let [type, setType] = useState("")
+
 
     function deleteProperty(index) {
         const resp = window.confirm(`Are you sure you want to delete this property? ${index}`)
@@ -34,40 +40,47 @@ export default function PropertyTable() {
     }
 
     function loadTable() {
-        findAll(apiUrl)
+        const parameters = [
+            {name: "propertyId", value: propertyId},
+            {name: "type", value: type},
+            {name: "isAvailable", value: isAvailable},
+            {name: "isCountryside", value: isCountryside},
+            {name: "hasSwimmingPool", value: hasSwimmingPool}
+        ]
+        findAll(apiUrl, parameters)
             .then(itens => setTableItens(itens))
     }
 
     return (
         <div className="div-property">
             <div className="div-property-inputs">
-                <label>property id</label>
-                <input/>
+                <label className="form-check-label">property id</label>
+                <input className="form-control" type="number" onChange={e => setPropertyId(e.target.value)}/>
                 <br/>
-                <label>Type</label>
-                <select>
+                <label className="form-check-label">Type</label>
+                <select className="form-select" onChange={e => setType(e.target.value)}>
                     <option value="">--</option>
                     {options.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
                 <br/>
-                <label>Is available</label>
-                <select>
+                <label className="form-check-label">Is available</label>
+                <select className="form-select" onChange={e => setIsAvailable(e.target.value)}>
                     {booleanOptions.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
                 <br/>
-                <label>Is available</label>
-                <select>
+                <label className="form-check-label">Is countryside</label>
+                <select className="form-select" onChange={e => setIsCountryside(e.target.value)}>
                     {booleanOptions.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
                 <br/>
-                <label>Has swimming pool</label>
-                <select>
+                <label className="form-check-label">Has swimming pool</label>
+                <select className="form-select" onChange={e => setHasSwimmingPool(e.target.value)}>
                     {booleanOptions.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}

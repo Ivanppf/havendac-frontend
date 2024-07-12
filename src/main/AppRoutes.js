@@ -4,7 +4,8 @@ import RoomTable from "../screens/room/RoomTable";
 import RoomCreate from "../screens/room/RoomCreate";
 import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
-import {findAll} from "../service/RequestService";
+import PropertyRequestService from "../service/PropertyRequestService";
+import RoomRequestService from "../service/RoomRequestService";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -14,21 +15,24 @@ const AppRoutes = createBrowserRouter([
                 path: "/",
                 element: <PropertyTable/>,
                 loader: async () => {
-                    return findAll("http://localhost:8080/api/properties")
+                    const propertyRequestService = new PropertyRequestService();
+                    return propertyRequestService.findAll()
                 }
             },
             {
                 path: "/properties",
                 element: <PropertyTable/>,
                 loader: async () => {
-                    return findAll("http://localhost:8080/api/properties")
+                    const propertyRequestService = new PropertyRequestService();
+                    return propertyRequestService.findAll()
                 }
             },
             {
                 path: "/rooms",
                 element: <RoomTable/>,
                 loader: async () => {
-                    return findAll("http://localhost:8080/api/rooms")
+                    const roomRequestService = new RoomRequestService();
+                    return roomRequestService.findAll()
                 }
             },
             {

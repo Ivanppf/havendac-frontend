@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import './propertyCreate.css';
-import Card from "../../components/Card";
 import {useLocation} from "react-router-dom";
-import {post, update} from "../../service/RequestService";
 
-const apiUrl = "http://localhost:8080/api/properties"
+import {notifyWarning} from "../../components/Toastify";
+import Card from "../../components/Card";
+import PropertyRequestService from "../../service/PropertyRequestService";
 
 const options = [
     {label: "Apartment", value: "APARTMENT"},
@@ -20,24 +20,43 @@ export default function PropertyCreate() {
     let [isAvailable, setIsAvailable] = useState(false)
     let [isCountryside, setIsCountryside] = useState(false)
     let [hasSwimmingPool, setHasSwimmingPool] = useState(false)
-    let [type, setType] = useState("")
+    let [propertyType, setPropertyType] = useState("")
     let [description, setDescription] = useState("")
 
     const data = useLocation();
+    const propertyRequestService = new PropertyRequestService();
+
+    const validate = () => {
+
+        const errors = [];
+        if (!propertyType) {
+            errors.push("Please, select a property type")
+        }
+        if (!description || description.trim().length < 1) {
+            errors.push("Please, type a description")
+        }
+        return errors;
+    }
 
     function register() {
         const property = {
             isAvailable: isAvailable,
             isCountryside: isCountryside,
             hasSwimmingPool: hasSwimmingPool,
-            type: type,
-            description: description
+            propertyType: propertyType,
+            description: description.trim()
         }
         if (data.state != null) {
-            update(apiUrl, data.state.id, property)
+            propertyRequestService.update(data.state.id, property)
         } else {
-
-            post(apiUrl, property)
+            const errors = validate();
+            if (errors.length > 0) {
+                errors.forEach((message, index) => {
+                    notifyWarning(message)
+                })
+            } else {
+                propertyRequestService.create(property)
+            }
         }
     }
 
@@ -45,7 +64,7 @@ export default function PropertyCreate() {
         setIsAvailable(data.state.isAvailable)
         setIsCountryside(data.state.isCountryside)
         setHasSwimmingPool(data.state.hasSwimmingPool)
-        setType(data.state.type)
+        setPropertyType(data.state.type)
         setDescription(data.state.description)
     }
 
@@ -90,11 +109,11 @@ export default function PropertyCreate() {
             </div>
             <br/>
             <div>
-                <select value={type} defaultValue="placeholder" className="form-select"
+                <select value={propertyType} defaultValue="placeholder" className="form-select"
                         id="exampleSelect1"
-                        onChange={e => setType(e.target.value)
+                        onChange={e => setPropertyType(e.target.value)
                         }>
-                    <option hidden value="placeholder">Select a type</option>
+                    <option hidden value="">Select a type</option>
                     {options.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}

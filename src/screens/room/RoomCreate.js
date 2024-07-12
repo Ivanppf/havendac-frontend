@@ -1,10 +1,10 @@
 import './roomCreate.css';
-import Card from "../../components/Card";
 import React, {useState} from "react";
 import {useLocation} from "react-router-dom";
-import {post, update} from "../../service/RequestService";
+import {notifyWarning} from "../../components/Toastify";
+import Card from "../../components/Card";
+import RoomRequestService from "../../service/RoomRequestService";
 
-const apiUrl = "http://localhost:8080/api/rooms"
 const options = [
     {label: "Bedroom", value: "BEDROOM"},
     {label: "Bathroom", value: "BATHROOM"},
@@ -22,6 +22,25 @@ export default function RoomCreate() {
     let [propertyId, setPropertyId] = useState(0)
 
     const data = useLocation();
+    const roomRequestService = new RoomRequestService();
+
+    const validate = () => {
+
+        const errors = [];
+        if (!length || length === "0") {
+            errors.push("Please, insert a room length")
+        }
+        if (!width || width === "0") {
+            errors.push("Please, insert a room width")
+        }
+        if (!roomType) {
+            errors.push("Please, select a room type")
+        }
+        if (!propertyId || propertyId === "0") {
+            errors.push("Please, insert a property id")
+        }
+        return errors;
+    }
 
     function register() {
         const room = {
@@ -31,9 +50,16 @@ export default function RoomCreate() {
             propertyId: propertyId
         }
         if (data.state != null) {
-            update(apiUrl, data.state.id, room)
+            roomRequestService.update(data.state.id, room)
         } else {
-            post(apiUrl, room)
+            const errors = validate();
+            if (errors.length > 0) {
+                errors.forEach((message, index) => {
+                    notifyWarning(message)
+                })
+            } else {
+                roomRequestService.create(room)
+            }
         }
     }
 
@@ -84,7 +110,7 @@ export default function RoomCreate() {
                         id="exampleSelect1"
                         onChange={e => setRoomType(e.target.value)
                         }>
-                    <option hidden value="placeholder">Select a type</option>
+                    <option hidden value="">Select a type</option>
                     {options.map(({value, label}) => (
                         <option key={value} value={value}>{label}</option>
                     ))}
@@ -98,6 +124,7 @@ export default function RoomCreate() {
                     type="number"
                     className="form-control"
                     value={propertyId}
+
                     id="inputPropertyId"
                     onChange={e => setPropertyId(e.target.value)}/>
             </div>

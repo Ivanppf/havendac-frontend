@@ -2,20 +2,20 @@ import React, {useState} from "react";
 import Table from "../../components/Table";
 import checkIcon from "../../assets/CHECK-CIRCLE.svg"
 import cancelIcon from "../../assets/CANCEL.svg"
-import {findAll, remove} from "../../service/RequestService";
 import {useLoaderData, useNavigate} from "react-router-dom";
+import PropertyRequestService from "../../service/PropertyRequestService";
 
-const apiUrl = "http://localhost:8080/api/properties"
 
 export default function PropertyTable() {
 
     const navigate = useNavigate();
     let [tableItens, setTableItens] = useState(useLoaderData())
+    const propertyRequestService = new PropertyRequestService();
 
     function deleteProperty(index) {
-        const resp = window.confirm(`Are you sure you want to delete this property? ${index}`)
+        const resp = window.confirm(`Are you sure you want to delete this property?`)
         if (resp) {
-            remove(apiUrl, tableItens[index].id)
+            propertyRequestService.remove(tableItens[index].id).then(r => loadTable())
         }
     }
 
@@ -26,7 +26,7 @@ export default function PropertyTable() {
     }
 
     function loadTable() {
-        findAll(apiUrl)
+        propertyRequestService.findAll()
             .then(itens => setTableItens(itens))
     }
 

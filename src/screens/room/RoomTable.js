@@ -1,20 +1,20 @@
 import React, {useState} from "react";
-import {findAll, remove} from "../../service/RequestService";
 import {useLoaderData, useNavigate} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import Table from "../../components/Table";
+import RoomRequestService from "../../service/RoomRequestService";
 
-const apiUrl = "http://localhost:8080/api/rooms"
 
 export default function RoomTable() {
 
     const navigate = useNavigate();
     let [tableItens, setTableItens] = useState(useLoaderData())
+    const roomRequestService = new RoomRequestService();
 
     function deleteRoom(index) {
         const resp = window.confirm(`Are you sure you want to delete this room? ${index}`)
         if (resp) {
-            remove(apiUrl, tableItens[index].id)
+            roomRequestService.remove(tableItens[index].id).then(loadTable)
         }
     }
 
@@ -25,7 +25,7 @@ export default function RoomTable() {
     }
 
     function loadTable() {
-        findAll(apiUrl).then(itens => setTableItens(itens))
+        roomRequestService.findAll().then(itens => setTableItens(itens))
     }
 
     return (

@@ -1,62 +1,64 @@
 import axios from "axios";
-import {Bounce, toast} from "react-toastify";
-import React from "react";
+import {notifyError, notifySuccess} from "../components/Toastify";
 
-export async function findAll(apiUrl) {
+export default class RequestService {
 
-    return await axios.get(apiUrl)
-        .then(response => response.data)
-        .catch((error) => {
-            notifyError(`${error}`)
-            return []
-        })
+    baseUrl = "http://localhost:8080/api";
 
-}
+    constructor(endpoint) {
+        this.url = this.buildUrl(endpoint)
+    }
 
-export async function post(apiUrl, item) {
-    await axios.post(apiUrl, item)
-        .then(() => notifySuccess("Created successfully"))
-        .catch((error) => {
-            notifyError(`${error}`)
-        })
-}
+    async findAll() {
+        return await axios.get(this.url)
+            .then(response => response.data)
+            .catch((error) => {
+                notifyError(error.response.data)
+                return []
+            }).catch(() => {
+                notifyError(`Error while getting data`)
+                return []
+            })
+    }
 
-export async function remove(apiUrl, id) {
-    await axios.delete(`${apiUrl}/${id}`)
-        .then(() => notifySuccess("Deleted successfully"))
-        .catch((error) => notifyError(`${error}`))
-}
+    async create(item) {
+        await axios.post(this.url, item)
+            .then(() => notifySuccess("Created successfully"))
+            .catch((error) => {
+                notifyError(error.response.data)
+                return []
+            }).catch(() => {
+                notifyError(`Error while creating data`)
+                return []
+            })
+    }
 
-export async function update(apiUrl, id, item) {
-    await axios.put(`${apiUrl}/${id}`, item)
-        .then(() => notifySuccess("Updated successfully"))
-        .catch((error) => notifyError(`${error}`))
-}
+    async remove(id) {
+        await axios.delete(`${this.url}/${id}`)
+            .then(() => notifySuccess("Deleted successfully"))
+            .catch((error) => {
+                notifyError(error.response.data)
+                return []
+            }).catch(() => {
+                notifyError(`Error while removing data`)
+                return []
+            })
+    }
 
-const notifyError = (msg) => {
-    toast.error(msg, {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-        transition: Bounce,
-    });
-}
+    async update(id, item) {
+        await axios.put(`${this.url}/${id}`, item)
+            .then(() => notifySuccess("Updated successfully"))
+            .catch((error) => {
+                notifyError(error.response.data)
+                return []
+            }).catch(() => {
+                notifyError(`Error while updating data`)
+                return []
+            })
+    }
 
-const notifySuccess = (msg) => {
-    toast.success(msg, {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: false,
-        progress: undefined,
-        theme: "colored",
-        transition: Bounce,
-    });
+    buildUrl(endpoint) {
+        return `${this.baseUrl}${endpoint}`
+    }
+
 }

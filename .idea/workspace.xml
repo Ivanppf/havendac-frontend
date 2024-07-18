@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fae8c9bb-c56b-46f7-9f5c-98235255e10f" name="Changes" comment="REFACTOR added more toast messaged; service refactor; input validation">
+      <change afterPath="$PROJECT_DIR$/src/components/Toastify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/property/PropertyTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/property/PropertyTable.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-experiment" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Ivanppf" />
+        <option name="repository" value="havendac-frontend" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e403b4f4-cb4d-4a04-8e8d-c647e03ec0c7" />
+        <option name="url" value="https://github.com/Ivanppf/havendac-frontend.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectId" id="2duaPDJcnYOlg10tWVdhzYky9SH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ivanp/Documents/IntelliJ/havendac-frontend&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\src\assets" />
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\src" />
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\src\components" />
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\src\screens" />
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\node_modules\bootswatch\dist\zephyr" />
+      <recent name="C:\Users\ivanp\Documents\IntelliJ\havendac-frontend\public" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="havendac-frontend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="havendac-frontend" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fae8c9bb-c56b-46f7-9f5c-98235255e10f" name="Changes" comment="" />
+      <created>1710860391778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710860391778</updated>
+      <workItem from="1710860393337" duration="1983000" />
+      <workItem from="1710866177301" duration="3830000" />
+      <workItem from="1710875334631" duration="1855000" />
+      <workItem from="1710881884085" duration="743000" />
+      <workItem from="1710937910557" duration="14731000" />
+      <workItem from="1710971603786" duration="4249000" />
+      <workItem from="1711023321015" duration="18059000" />
+      <workItem from="1711045944409" duration="1335000" />
+      <workItem from="1711112229352" duration="9000" />
+      <workItem from="1711113536525" duration="1916000" />
+      <workItem from="1711146038982" duration="12000" />
+      <workItem from="1711153425819" duration="1192000" />
+      <workItem from="1711197271889" duration="750000" />
+      <workItem from="1711199665719" duration="9000" />
+      <workItem from="1711203318428" duration="601000" />
+      <workItem from="1711375608803" duration="19405000" />
+      <workItem from="1711405103878" duration="1119000" />
+      <workItem from="1711411782928" duration="4444000" />
+      <workItem from="1711459571926" duration="10488000" />
+      <workItem from="1711544299564" duration="19046000" />
+      <workItem from="1711635770760" duration="6310000" />
+      <workItem from="1711667230364" duration="2003000" />
+      <workItem from="1711669361234" duration="5559000" />
+      <workItem from="1711675464639" duration="1572000" />
+      <workItem from="1711716191243" duration="3478000" />
+      <workItem from="1711727964733" duration="3550000" />
+      <workItem from="1711753525989" duration="8479000" />
+      <workItem from="1711804663749" duration="6705000" />
+      <workItem from="1711821340037" duration="3284000" />
+      <workItem from="1711833714515" duration="9461000" />
+      <workItem from="1711888666394" duration="15353000" />
+      <workItem from="1711921859223" duration="3543000" />
+      <workItem from="1711979849363" duration="4738000" />
+      <workItem from="1711993201968" duration="628000" />
+      <workItem from="1712068938414" duration="11129000" />
+      <workItem from="1712094185963" duration="551000" />
+      <workItem from="1712102187559" duration="3003000" />
+      <workItem from="1712154187397" duration="900000" />
+      <workItem from="1712162606729" duration="3382000" />
+      <workItem from="1712189841104" duration="1035000" />
+      <workItem from="1712267455373" duration="857000" />
+      <workItem from="1712320810957" duration="151000" />
+      <workItem from="1712321676659" duration="3170000" />
+      <workItem from="1712338277319" duration="5952000" />
+      <workItem from="1712358897790" duration="1479000" />
+      <workItem from="1718635712065" duration="691000" />
+      <workItem from="1718637592324" duration="18000" />
+      <workItem from="1718637850733" duration="78000" />
+      <workItem from="1718808528203" duration="406000" />
+      <workItem from="1720531223121" duration="2887000" />
+      <workItem from="1720548516969" duration="11000" />
+      <workItem from="1720549517731" duration="3939000" />
+      <workItem from="1720618186279" duration="2167000" />
+      <workItem from="1720629581510" duration="9695000" />
+      <workItem from="1720701262824" duration="3331000" />
+      <workItem from="1720714800530" duration="11799000" />
+      <workItem from="1720784274013" duration="8328000" />
+      <workItem from="1720811061218" duration="2395000" />
+      <workItem from="1720814463009" duration="89000" />
+      <workItem from="1721219348024" duration="87000" />
+      <workItem from="1721219641882" duration="36000" />
+      <workItem from="1721220140198" duration="97000" />
+      <workItem from="1721223087358" duration="1096000" />
+    </task>
+    <task id="LOCAL-00001" summary="Primeiro commit&#10;&#10;crianção do projeto, remoção do código preexistente e inicio da criação da tela de cadastramento das entidades.">
+      <created>1710938249817</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710938249817</updated>
+    </task>
+    <task id="LOCAL-00002" summary="adicionado telas de cadastro para property e room">
+      <created>1710972220081</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710972220081</updated>
+    </task>
+    <task id="LOCAL-00003" summary="versão estável&#10;&#10;adicionado tela de cadastro para property e room sem estilização.">
+      <created>1711029518023</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711029518023</updated>
+    </task>
+    <task id="LOCAL-00004" summary="REFACTOR change selector to use a list">
+      <created>1711154355464</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711154355464</updated>
+    </task>
+    <task id="LOCAL-00005" summary="FEATURE adicionando novas telas e componentes&#10;&#10;adicionando bootswatch, tabela de property e room, tela de cadastro para property e room.">
+      <created>1711636394893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711636394893</updated>
+    </task>
+    <task id="LOCAL-00006" summary="REFACTOR mudança tableItens para props.children">
+      <created>1711638755944</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711638755944</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FEATURE added connection with backend for get and post methods">
+      <created>1711760194386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711760194386</updated>
+    </task>
+    <task id="LOCAL-00008" summary="FEATURE added added delete method, working on update funcion">
+      <created>1711808864454</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711808864454</updated>
+    </task>
+    <task id="LOCAL-00009" summary="REFACTOR change router module">
+      <created>1711813205863</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711813205863</updated>
+    </task>
+    <task id="LOCAL-00010" summary="FEATURE added update and delete methods, changed class components to function">
+      <created>1711909187216</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711909187217</updated>
+    </task>
+    <task id="LOCAL-00011" summary="FEATURE both entities CRUD working&#10;&#10;added methods to the room screen, changed class components do function components">
+      <created>1711984548990</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711984548990</updated>
+    </task>
+    <task id="LOCAL-00012" summary="REFACTOR deleted readme">
+      <created>1711984612187</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711984612187</updated>
+    </task>
+    <task id="LOCAL-00013" summary="FEATURE added new atribute roomType">
+      <created>1712075907517</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712075907517</updated>
+    </task>
+    <task id="LOCAL-00014" summary="FEATURE added toast message">
+      <created>1712103521869</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712103521869</updated>
+    </task>
+    <task id="LOCAL-00015" summary="FEATURE started developing table filter">
+      <created>1712190705676</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712190705676</updated>
+    </task>
+    <task id="LOCAL-00016" summary="FIX delete comments">
+      <created>1712322117785</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712322117785</updated>
+    </task>
+    <task id="LOCAL-00017" summary="FIX delete comments">
+      <created>1712322235361</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712322235361</updated>
+    </task>
+    <task id="LOCAL-00018" summary="FIX delete comments">
+      <created>1712322363790</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1712322363790</updated>
+    </task>
+    <task id="LOCAL-00019" summary="FEATURE added request parameters">
+      <created>1720531525290</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1720531525290</updated>
+    </task>
+    <task id="LOCAL-00020" summary="REFACTOR added more toast messaged; service refactor; input validation">
+      <created>1720814543765</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720814543765</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primeiro commit&#10;&#10;crianção do projeto, remoção do código preexistente e inicio da criação da tela de cadastramento das entidades." />
+    <MESSAGE value="adicionado telas de cadastro para property e room" />
+    <MESSAGE value="versão estável&#10;&#10;adicionado tela de cadastro para property e room sem estilização." />
+    <MESSAGE value="REFACTOR change selector to use a list" />
+    <MESSAGE value="FEATURE adicionando novas telas e componentes&#10;&#10;adicionando bootswatch, tabela de property e room, tela de cadastro para property e room." />
+    <MESSAGE value="REFACTOR mudança tableItens para props.children" />
+    <MESSAGE value="FEATURE added connection with backend for get and post methods" />
+    <MESSAGE value="FEATURE added added delete method, working on update funcion" />
+    <MESSAGE value="REFACTOR change router module" />
+    <MESSAGE value="FEATURE added update and delete methods, changed class components to function" />
+    <MESSAGE value="FEATURE added methods to the room screen, changed class components do function components" />
+    <MESSAGE value="FEATURE both entities CRUD working&#10;&#10;added methods to the room screen, changed class components do function components" />
+    <MESSAGE value="REFACTOR deleted readme" />
+    <MESSAGE value="FEATURE added new atribute roomType" />
+    <MESSAGE value="FEATURE added toast message" />
+    <MESSAGE value="FEATURE started developing table filter" />
+    <MESSAGE value="FIX delete comments" />
+    <MESSAGE value="FEATURE added request parameters" />
+    <MESSAGE value="REFACTOR added more toast messaged; service refactor; input validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="REFACTOR added more toast messaged; service refactor; input validation" />
+  </component>
+</project>

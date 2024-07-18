@@ -25,7 +25,31 @@ export default function RoomTable() {
     }
 
     function loadTable() {
-        roomRequestService.findAll().then(itens => setTableItens(itens))
+        // roomRequestService.findAll().then(itens => setTableItens(itens))
+        setTableItens([
+            {
+                "id": 1,
+                "length": 5,
+                "width": 4,
+                "roomType": "BEDROOM",
+                "propertyId": 1
+            },
+            {
+                "id": 2,
+                "length": 3,
+                "width": 3,
+                "roomType": "BATHROOM",
+                "propertyId": 1
+            },
+            {
+                "id": 3,
+                "length": 6,
+                "width": 5,
+                "roomType": "KITCHEN",
+                "propertyId": 2
+            }
+        ]
+    )
     }
 
     return (

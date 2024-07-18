@@ -2,7 +2,6 @@ import './roomCreate.css';
 import React, {useState} from "react";
 import {useLocation} from "react-router-dom";
 import {notifyWarning} from "../../components/Toastify";
-import Card from "../../components/Card";
 import RoomRequestService from "../../service/RoomRequestService";
 
 const options = [
@@ -81,7 +80,7 @@ export default function RoomCreate() {
     constructor()
 
     return (
-        <Card className="div-cadastro-room" title="Room" register={register}>
+        <div className="div-cadastro-room" title="Room" register={register}>
             <div>
                 <label
                     className="col-form-label mt-2"
@@ -128,6 +127,6 @@ export default function RoomCreate() {
                     id="inputPropertyId"
                     onChange={e => setPropertyId(e.target.value)}/>
             </div>
-        </Card>
+        </div>
     )
 }

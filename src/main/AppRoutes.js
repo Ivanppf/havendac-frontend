@@ -6,6 +6,7 @@ import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
 import PropertyRequestService from "../service/PropertyRequestService";
 import RoomRequestService from "../service/RoomRequestService";
+import PropertyUpdate from "../screens/property/propertyUpdate";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -43,6 +44,14 @@ const AppRoutes = createBrowserRouter([
                 path: "/rooms/create",
                 element: <RoomCreate/>
             },
+            {
+                path: "/properties/update",
+                element: <PropertyUpdate/>
+            },
+            // {
+            //     path: "/rooms/update",
+            //     element: <RoomUpdate/>
+            // },
         ]
     }
 ])

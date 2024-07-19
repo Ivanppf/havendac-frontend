@@ -16,6 +16,7 @@ const AppRoutes = createBrowserRouter([
                 path: "/",
                 element: <PropertyTable/>,
                 loader: async () => {
+                    return []
                     const propertyRequestService = new PropertyRequestService();
                     return propertyRequestService.findAll()
                 }
@@ -24,6 +25,7 @@ const AppRoutes = createBrowserRouter([
                 path: "/properties",
                 element: <PropertyTable/>,
                 loader: async () => {
+                    return []
                     const propertyRequestService = new PropertyRequestService();
                     return propertyRequestService.findAll()
                 }
@@ -32,6 +34,7 @@ const AppRoutes = createBrowserRouter([
                 path: "/rooms",
                 element: <RoomTable/>,
                 loader: async () => {
+                    return []
                     const roomRequestService = new RoomRequestService();
                     return roomRequestService.findAll()
                 }

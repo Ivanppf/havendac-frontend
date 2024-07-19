@@ -50,7 +50,7 @@ export default function PropertyCard(props) {
             </div>
             <br/>
             <div>
-                <select value={propertyType} defaultValue="placeholder" className="form-select"
+                <select value={propertyType}  className="form-select"
                         id="exampleSelect1"
                         onChange={e => setPropertyType(e.target.value)
                         }>

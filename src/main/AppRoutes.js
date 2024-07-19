@@ -7,6 +7,7 @@ import App from "../App";
 import PropertyRequestService from "../service/PropertyRequestService";
 import RoomRequestService from "../service/RoomRequestService";
 import PropertyUpdate from "../screens/property/propertyUpdate";
+import RoomUpdate from "../screens/room/RoomUpdate";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -51,10 +52,10 @@ const AppRoutes = createBrowserRouter([
                 path: "/properties/update",
                 element: <PropertyUpdate/>
             },
-            // {
-            //     path: "/rooms/update",
-            //     element: <RoomUpdate/>
-            // },
+            {
+                path: "/rooms/update",
+                element: <RoomUpdate/>
+            },
         ]
     }
 ])

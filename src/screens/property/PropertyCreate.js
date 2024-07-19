@@ -1,17 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import './propertyCreate.css';
 import {notifyWarning} from "../../components/Toastify";
 import PropertyRequestService from "../../service/PropertyRequestService";
 import PropertyCard from "./propertyCard.js"
-
-const options = [
-    {label: "Apartment", value: "APARTMENT"},
-    {label: "House", value: "HOUSE"},
-    {label: "Bedroom", value: "BEDROOM"},
-    {label: "Cabin", value: "CABIN"},
-    {label: "Bed & Breakfasts", value: "BED_N_BREAKFASTS"},
-    {label: "Farm", value: "FARM"}
-]
 
 export default function PropertyCreate() {
 
@@ -49,6 +40,6 @@ export default function PropertyCreate() {
     }
 
     return (
-        <PropertyCard register={register}/>
+        <PropertyCard register={register} btnName="Create"/>
     )
 }

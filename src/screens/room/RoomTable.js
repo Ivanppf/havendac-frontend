@@ -21,35 +21,38 @@ export default function RoomTable() {
     function editRoom(index) {
         const data = tableItens[index]
         data["id"] = tableItens[index].id
-        navigate("/rooms/create", {state: data});
+        navigate("/rooms/update", {state: data});
     }
 
     function loadTable() {
-        // roomRequestService.findAll().then(itens => setTableItens(itens))
-        setTableItens([
-            {
-                "id": 1,
-                "length": 5,
-                "width": 4,
-                "roomType": "BEDROOM",
-                "propertyId": 1
-            },
-            {
-                "id": 2,
-                "length": 3,
-                "width": 3,
-                "roomType": "BATHROOM",
-                "propertyId": 1
-            },
-            {
-                "id": 3,
-                "length": 6,
-                "width": 5,
-                "roomType": "KITCHEN",
-                "propertyId": 2
-            }
-        ]
-    )
+        roomRequestService.findAll().then(itens => setTableItens(itens))
+        // setTableItens([
+        //     {
+        //         "id": 1,
+        //         "length": 5,
+        //         "width": 4,
+        //         "area":20,
+        //         "roomType": "BEDROOM",
+        //         "propertyId": 1
+        //     },
+        //     {
+        //         "id": 2,
+        //         "length": 3,
+        //         "width": 3,
+        //         "area":9,
+        //         "roomType": "BATHROOM",
+        //         "propertyId": 1
+        //     },
+        //     {
+        //         "id": 3,
+        //         "length": 6,
+        //         "width": 5,
+        //         "area":30,
+        //         "roomType": "KITCHEN",
+        //         "propertyId": 2
+        //     }
+        // ]
+    // )
     }
 
     return (

@@ -69,7 +69,7 @@ export default function PropertyCard(props) {
             </div>
             <div className="div-button-property mt-2">
                 <button className="btn btn-primary"
-                        onClick={() => props.register(isAvailable,isCountryside,hasSwimmingPool,propertyType,description)}>Send
+                        onClick={() => props.register(isAvailable,isCountryside,hasSwimmingPool,propertyType,description)}>{props.btnName}
                 </button>
             </div>
         </Card>

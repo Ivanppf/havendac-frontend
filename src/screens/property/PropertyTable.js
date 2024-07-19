@@ -27,34 +27,34 @@ export default function PropertyTable() {
     }
 
     function loadTable() {
-        // propertyRequestService.findAll()
-        //     .then(itens => setTableItens(itens))
-        setTableItens([
-            {
-                "id":1,
-                "type": "APARTMENT",
-                "isAvailable": true,
-                "isCountryside": false,
-                "hasSwimmingPool": true,
-                "description": "Spacious apartment in the city center with a swimming pool."
-            },
-            {
-                "id":2,
-                "type": "HOUSE",
-                "isAvailable": true,
-                "isCountryside": true,
-                "hasSwimmingPool": false,
-                "description": "Cozy countryside house perfect for a weekend getaway."
-            },
-            {
-                "id":3,
-                "type": "BEDROOM",
-                "isAvailable": false,
-                "isCountryside": false,
-                "hasSwimmingPool": false,
-                "description": "Comfortable bedroom in a shared apartment."
-            }
-        ])
+        propertyRequestService.findAll()
+            .then(itens => setTableItens(itens))
+        // setTableItens([
+        //     {
+        //         "id":1,
+        //         "type": "APARTMENT",
+        //         "isAvailable": true,
+        //         "isCountryside": false,
+        //         "hasSwimmingPool": true,
+        //         "description": "Spacious apartment in the city center with a swimming pool."
+        //     },
+        //     {
+        //         "id":2,
+        //         "type": "HOUSE",
+        //         "isAvailable": true,
+        //         "isCountryside": true,
+        //         "hasSwimmingPool": false,
+        //         "description": "Cozy countryside house perfect for a weekend getaway."
+        //     },
+        //     {
+        //         "id":3,
+        //         "type": "BEDROOM",
+        //         "isAvailable": false,
+        //         "isCountryside": false,
+        //         "hasSwimmingPool": false,
+        //         "description": "Comfortable bedroom in a shared apartment."
+        //     }
+        // ])
     }
 
     return (

@@ -13,10 +13,10 @@ const options = [
 
 export default function PropertyCard(props) {
 
-    let [isAvailable, setIsAvailable] = useState(props.data?.isAvailable)
-    let [isCountryside, setIsCountryside] = useState(props.data?.isCountryside)
-    let [hasSwimmingPool, setHasSwimmingPool] = useState(props.data?.hasSwimmingPool)
-    let [propertyType, setPropertyType] = useState(props.data?.propertyType)
+    let [isAvailable, setIsAvailable] = useState(props.data?.isAvailable || false)
+    let [isCountryside, setIsCountryside] = useState(props.data?.isCountryside || false)
+    let [hasSwimmingPool, setHasSwimmingPool] = useState(props.data?.hasSwimmingPool || false)
+    let [propertyType, setPropertyType] = useState(props.data?.propertyType || "")
     let [description, setDescription] = useState(props.data?.description || "")
 
     return (

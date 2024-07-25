@@ -8,6 +8,8 @@ import PropertyRequestService from "../service/PropertyRequestService";
 import RoomRequestService from "../service/RoomRequestService";
 import PropertyUpdate from "../screens/property/propertyUpdate";
 import RoomUpdate from "../screens/room/RoomUpdate";
+import Signin from "../screens/login/Signin";
+import Register from "../screens/login/Register";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -15,12 +17,7 @@ const AppRoutes = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <PropertyTable/>,
-                loader: async () => {
-                    // return []
-                    const propertyRequestService = new PropertyRequestService();
-                    return propertyRequestService.findAll()
-                }
+                element: <Signin/>
             },
             {
                 path: "/properties",
@@ -56,6 +53,14 @@ const AppRoutes = createBrowserRouter([
                 path: "/rooms/update",
                 element: <RoomUpdate/>
             },
+            {
+                path: "/signin",
+                element: <Signin/>
+            },
+            {
+                path: "/register",
+                element: <Register/>
+            }
         ]
     }
 ])

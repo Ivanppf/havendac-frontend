@@ -6,13 +6,13 @@ export default function Signin() {
     <Card title="Login">
       <div>
         <div>
-          <label className="col-form-label mt-2 ms-2" for="">
+          <label className="col-form-label mt-2 ms-2">
             Email
           </label>
           <input className="form-control" type="text" />
         </div>
         <div>
-          <label className="col-form-label mt-2 ms-2" for="">
+          <label className="col-form-label mt-2 ms-2">
             Password
           </label>
           <input className="form-control" type="password" />

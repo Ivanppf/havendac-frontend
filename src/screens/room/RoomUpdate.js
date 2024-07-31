@@ -1,5 +1,5 @@
 import "./roomCreate.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { notifyError, notifyWarning } from "../../components/Toastify";
 import RoomRequestService from "../../service/RoomRequestService";
@@ -27,8 +27,9 @@ export default function RoomCreate() {
     return errors;
   };
 
-  function register(length, width, roomType, propertyId) {
+  function register(roomId, length, width, roomType, propertyId) {
     const room = {
+      roomId: roomId,
       length: length,
       width: width,
       roomType: roomType,
@@ -41,13 +42,13 @@ export default function RoomCreate() {
         notifyWarning(message);
       });
     } else {
-      roomRequestService.update(room.roomId, room);
+      roomRequestService.update(room.roomId, room); 
     }
   }
 
   function loadUpdateData() {
     setRoom({
-      roomId: data.state.roomId,
+      roomId: data.state.id,
       length: data.state.length,
       width: data.state.width,
       roomType: data.state.roomType,
@@ -55,17 +56,13 @@ export default function RoomCreate() {
     });
   }
 
-  const [constructorHasRun, setConstructorHasRun] = useState(false);
-  const constructor = () => {
-    if (constructorHasRun) return;
+  useEffect(() => {
     if (data.state != null) {
       loadUpdateData();
     } else {
       notifyError("Something went wrong");
     }
-    setConstructorHasRun(true);
-  };
-  constructor();
+  }, [data.state]);
 
   return <RoomCard data={room} register={register} btnName={"Update"} />;
 }

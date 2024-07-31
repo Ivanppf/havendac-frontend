@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./propertyCreate.css";
 import { useLocation } from "react-router-dom";
 
@@ -23,6 +23,7 @@ export default function PropertyUpdate() {
   };
 
   function register(
+    propertyId,
     isAvailable,
     isCountryside,
     hasSwimmingPool,
@@ -30,6 +31,7 @@ export default function PropertyUpdate() {
     description
   ) {
     const property = {
+      propertyId: propertyId,
       isAvailable: isAvailable,
       isCountryside: isCountryside,
       hasSwimmingPool: hasSwimmingPool,
@@ -58,17 +60,13 @@ export default function PropertyUpdate() {
     });
   }
 
-  const [constructorHasRun, setConstructorHasRun] = useState(false);
-  const constructor = () => {
-    if (constructorHasRun) return;
+  useEffect(() => {
     if (data.state != null) {
       loadUpdateData();
     } else {
       notifyError("Something went wrong");
     }
-    setConstructorHasRun(true);
-  };
-  constructor();
+  }, []);
 
   return <PropertyCard data={property} register={register} btnName="Update" />;
 }

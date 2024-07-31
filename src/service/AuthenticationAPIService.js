@@ -38,15 +38,4 @@ export default class AuthenticationAPIService extends RequestService {
     this.storageService.removeItem(TOKEN);
     super.logout()
   }
-
-  async register(user) {
-    const response = await super.register(user);
-    if (response) {
-      const userCredencials = {
-        email: user.email,
-        password: user.password,
-      };
-      this.login(userCredencials);
-    }
-  }
 }

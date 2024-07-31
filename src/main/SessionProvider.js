@@ -33,7 +33,6 @@ export default class SessionProvider extends React.Component {
 
   end = () => {
     this.setState({ loggedUser: null });
-
     return this.service.logout();
   };
 

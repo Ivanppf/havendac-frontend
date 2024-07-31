@@ -8,7 +8,6 @@ export default function RestrictedRoute(props) {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const data = useContext(AuthContext);
-  const location = useLocation()
 
   useEffect(() => {
     const fetchData = async () => {
